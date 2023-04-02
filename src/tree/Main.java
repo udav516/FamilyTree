@@ -22,7 +22,7 @@ public class Main {
         familyTree.addHuman(human4);
         familyTree.addHuman(human5);
         System.out.println(familyTree);
-        familyTree.findHuman("Павел");
+        System.out.println(familyTree.findHuman("Павел"));
 
     }
 }

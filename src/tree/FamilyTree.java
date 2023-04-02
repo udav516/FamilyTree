@@ -14,11 +14,12 @@ public class FamilyTree {
             human.getFather().addChild(human);
     }
 
-    public void findHuman(String name) {
+    public String findHuman(String name) {
         for (Human value : famTree)
             if (value.getName().contains(name)) {
-                System.out.println(value);
+                return value.toString();
             }
+        return null;
     }
 
     @Override
