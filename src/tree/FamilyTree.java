@@ -15,9 +15,9 @@ public class FamilyTree {
     }
 
     public String findHuman(String name) {
-        for (Human value : famTree)
-            if (value.getName().contains(name)) {
-                return value.toString();
+        for (Human human : famTree)
+            if (human.getName().contains(name)) {
+                return human.toString();
             }
         return null;
     }
