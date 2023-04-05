@@ -1,4 +1,8 @@
-package tree;
+package main;
+
+import file.FileUtil;
+import tree.FamilyTree;
+import tree.Human;
 
 import java.time.LocalDate;
 
@@ -21,8 +25,16 @@ public class Main {
         familyTree.addHuman(human3);
         familyTree.addHuman(human4);
         familyTree.addHuman(human5);
-        System.out.println(familyTree);
-        System.out.println(familyTree.findHuman("Павел"));
+//        System.out.println(familyTree);
+//        System.out.println(familyTree.findHuman("Павел"));
+
+        String fileName = "FamilyList.txt";
+        FileUtil save = new FileUtil();
+        save.saveToFile(familyTree, fileName);
+
+        FamilyTree read;
+        read = save.readFromFile(fileName);
+        System.out.println(read);
 
     }
 }
