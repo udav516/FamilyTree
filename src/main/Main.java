@@ -28,13 +28,17 @@ public class Main {
 //        System.out.println(familyTree);
 //        System.out.println(familyTree.findHuman("Павел"));
 
-        String fileName = "FamilyList.txt";
-        FileUtil save = new FileUtil();
-        save.saveToFile(familyTree, fileName);
+//        String fileName = "FamilyList.txt";
+//        FileUtil save = new FileUtil();
+//        save.saveToFile(familyTree, fileName);
+//
+//        FamilyTree read;
+//        read = save.readFromFile(fileName);
+//        System.out.println(read);
 
-        FamilyTree read;
-        read = save.readFromFile(fileName);
-        System.out.println(read);
-
+        familyTree.sortByName("Иван");
+        System.out.println(familyTree);
+        familyTree.sortByBirthDate(LocalDate.of(1865, 11, 25));
+        System.out.println(familyTree);
     }
 }
