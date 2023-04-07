@@ -1,12 +1,11 @@
 package tree;
 
-import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.Iterator;
+import java.util.*;
 
-public class FamilyTree implements Iterable {
-    private final ArrayList<Human> famTree = new ArrayList<>();
+public class FamilyTree implements Iterable<Human> {
+    private ArrayList<Human> famTree = new ArrayList<>();
 
     public void addHuman(Human human) {
         famTree.add(human);
@@ -24,27 +23,26 @@ public class FamilyTree implements Iterable {
             }
         return null;
     }
-
-    public String sortByName(String name) {
-        for (Human human : famTree) {
-            Comparator<Human> Comparator = null;
-            famTree.sort(java.util.Comparator.comparing(Human::getName));
-            return human.getName();
-        }
-        return null;
+    public void sortByName() {
+        famTree.sort(Comparator.comparing(Human::getName));
+    }
+    public void sortByBirthDate() {
+        famTree.sort(Comparator.comparing(Human::getBirthDate));
     }
 
-    public LocalDate sortByBirthDate(LocalDate birthDate) {
-        for (Human human : famTree) {
-            Comparator<Human> Comparator = null;
-            famTree.sort(java.util.Comparator.comparing(Human::getBirthDate));
-            return human.getBirthDate();
-        }
-        return null;
+    public void famSort() {
+        Collections.sort(famTree);
+    }
+
+    @Override
+    public Iterator<Human> iterator() {
+        return famTree.iterator();
     }
 
     @Override
     public String toString() {
         return famTree.toString();
     }
+
+
 }
