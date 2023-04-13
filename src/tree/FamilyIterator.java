@@ -1,13 +1,14 @@
 package tree;
 
-import java.util.*;
 import java.util.Iterator;
+import java.util.*;
 
-public class FamilyIterator implements Iterator<Human> {
+public class FamilyIterator<T> implements Iterator<T> {
     private int generationIndex;
-    private ArrayList<Human> generations;
 
-    public FamilyIterator(ArrayList<Human> generations) {
+    private List<T> generations;
+
+    public FamilyIterator(List<T> generations) {
         this.generations = generations;
     }
 
@@ -17,7 +18,7 @@ public class FamilyIterator implements Iterator<Human> {
     }
 
     @Override
-    public Human next() {
+    public T next() {
         return generations.get(generationIndex++);
     }
 }
