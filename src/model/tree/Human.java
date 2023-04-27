@@ -1,4 +1,4 @@
-package tree;
+package model.tree;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Human implements Serializable {
-    private int id;
     private String name;
     private Gender gender;
     private LocalDate birthDate;
@@ -15,8 +14,17 @@ public class Human implements Serializable {
     private Human father;
     private List<Human> children;
 
-    public Human(int id, String name, Gender gender, LocalDate birthDate, LocalDate deathDate, Human mother, Human father, List<Human> children) {
-        this.id = id;
+    public Human(String name, Gender gender, LocalDate birthDate, LocalDate deathDate, Human mother, Human father) {
+        this.name = name;
+        this.gender = gender;
+        this.birthDate = birthDate;
+        this.deathDate = deathDate;
+        this.mother = mother;
+        this.father = father;
+        this.children = new ArrayList<>();
+    }
+
+    public Human(String name, Gender gender, LocalDate birthDate, LocalDate deathDate, Human mother, Human father, List<Human> children) {
         this.name = name;
         this.gender = gender;
         this.birthDate = birthDate;
@@ -26,8 +34,8 @@ public class Human implements Serializable {
         this.children = children;
     }
 
-    public Human(int id, String name, Gender gender, LocalDate birthDate) {
-        this(id, name, gender, birthDate, null, null, null, new ArrayList<>());
+    public Human(String name, Gender gender, LocalDate birthDate) {
+        this(name, gender, birthDate, null, null, null, new ArrayList<>());
     }
 
     public String getName() {
@@ -93,8 +101,7 @@ public class Human implements Serializable {
     @Override
     public String toString() {
         return "\nHuman{" +
-                "id = " + id +
-                ", name ='" + name + '\'' +
+                "name ='" + name + '\'' +
                 ", gender = " + gender +
                 ", birthDate = " + birthDate +
                 ", deathDate = " + deathDate +
